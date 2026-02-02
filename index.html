@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Zunaira Online Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f2f2f2;
+}
+header{
+    background:#ff5a5f;
+    color:white;
+    padding:15px;
+    text-align:center;
+    font-size:24px;
+}
+.container{
+    padding:20px;
+}
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+.product{
+    background:white;
+    border-radius:10px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+.product img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:8px;
+}
+.product h3{
+    margin:10px 0 5px;
+}
+.product p{
+    margin:5px 0;
+    font-weight:bold;
+}
+.product button{
+    background:#ff5a5f;
+    color:white;
+    border:none;
+    padding:10px;
+    width:100%;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+/* ORDER FORM */
+.order-form{
+    background:white;
+    margin-top:30px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    display:none; /* initially hidden */
+}
+.order-form h2{
+    text-align:center;
+}
+.order-form input,
+.order-form textarea{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+.order-form button{
+    background:#25d366;
+    color:white;
+    border:none;
+    padding:12px;
+    font-size:16px;
+    width:100%;
+    border-radius:5px;
+}
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ Online Store 🛒
+</header>
+
+<div class="container">
+
+<div class="products">
+
+<div class="product">
+<img src="images/product1.jpg" alt="Hand Bag">
+<h3>Hand Bag</h3>
+<p>Price: Rs 1500</p>
+<button onclick="showOrderForm('Hand Bag','1500')">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="images/product2.jpg" alt="Shoes">
+<h3>Shoes</h3>
+<p>Price: Rs 2500</p>
+<button onclick="showOrderForm('Shoes','2500')">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="images/product3.jpg" alt="Watch">
+<h3>Watch</h3>
+<p>Price: Rs 3000</p>
+<button onclick="showOrderForm('Watch','3000')">Buy Now</button>
+</div>
+
+</div>
+
+<!-- ORDER FORM -->
+<div class="order-form" id="orderForm">
+<h2>Place Your Order</h2>
+
+<!-- 🔴 Formspree link yahan paste karo -->
+<form action="https://formspree.io/f/mkozqnvz" method="POST">
+
+<input type="text" id="name" name="name" placeholder="Your Name" required>
+
+<input type="email" id="email" name="email" placeholder="Your Email" required>
+
+<input type="text" id="product" name="product" placeholder="Product Name" required>
+
+<input type="text" id="price" name="price" placeholder="Price" required>
+
+<textarea id="address" name="address" placeholder="Delivery Address" required></textarea>
+
+<textarea id="message" name="message" placeholder="Any Message"></textarea>
+
+<button type="submit">Submit Order</button>
+</form>
+</div>
+
+</div>
+
+<footer>
+
+</footer>
+© 2026  Store
+<script>
+function showOrderForm(product, price){
+    // fill product info
+    document.getElementById("product").value = product;
+    document.getElementById("price").value = "Rs " + price;
+    
+    // show form
+    document.getElementById("orderForm").style.display = "block";
+
+    // scroll smoothly to form
+    document.getElementById("orderForm").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
